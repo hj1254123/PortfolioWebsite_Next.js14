@@ -17,4 +17,5 @@ module.exports = {
   bracketSpacing: true,
   // 尾随逗号 all|es5|none，默认 all
   trailingComma: 'all',
-};
+  plugins: ['prettier-plugin-tailwindcss'],
+}
