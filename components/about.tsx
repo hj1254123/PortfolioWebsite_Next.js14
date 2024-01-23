@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import SectionHeader from './section-header';
 
 export default function About() {
   return (
@@ -15,7 +16,7 @@ export default function About() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
     >
-      <h2 className='mb-8 text-3xl font-medium'>About me</h2>
+      <SectionHeader>About me</SectionHeader>
       <p className='mb-3'>
         {' '}
         After graduating with a degree in <span className='font-medium'>Accounting</span>, I decided
