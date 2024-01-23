@@ -12,7 +12,7 @@ import { FaGithubSquare } from 'react-icons/fa';
 
 export default function Intro() {
   return (
-    <section className='mb-28 max-w-[50rem] text-center sm:mb-0'>
+    <section id='home' className='mb-28 max-w-[50rem] text-center sm:mb-0'>
       <div className='flex items-center justify-center'>
         <div className='relative'>
           <motion.div
@@ -24,9 +24,10 @@ export default function Intro() {
             }}
           >
             <Image
+              className='h-24 w-24 rounded-full border-[0.35rem] border-white object-cover shadow-xl'
               src={profile}
               alt='Picture of the author'
-              className='h-24 w-24 rounded-full border-[0.35rem] border-white object-cover shadow-xl'
+              priority={true}
             />
           </motion.div>
           <motion.span
@@ -64,15 +65,15 @@ export default function Intro() {
         }}
       >
         <Link
-          href='#about'
           className='group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 active:scale-105'
+          href='#about'
         >
           Contact me here{' '}
           <BsArrowRight className='opacity-70 transition group-hover:translate-x-1' />
         </Link>
         <a
-          href='/CV.pdf'
           className='group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 outline-none transition hover:scale-110 active:scale-105 dark:bg-white/10'
+          href='/CV.pdf'
           download
         >
           Download CV <HiDownload className='opacity-60 transition group-hover:translate-y-1' />
