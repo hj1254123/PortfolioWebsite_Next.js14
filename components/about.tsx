@@ -2,14 +2,18 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+
 import SectionHeader from './section-header';
+import { useSectionInView } from '@/lib/hooks';
 
 export default function About() {
+  const { ref } = useSectionInView('About');
   return (
     // scroll-mt-28 是 scroll-margin-top: 7rem/* 112px */;
     // 在本项目点击导航栏需要滚动到对应区域，默认会对齐视口顶部，
     // 但是会被 header 遮挡，用该属性可以给一个偏移距离。
     <motion.section
+      ref={ref}
       id='about'
       className='mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40'
       initial={{ opacity: 0, y: 100 }}

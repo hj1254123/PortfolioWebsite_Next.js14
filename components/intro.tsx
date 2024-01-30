@@ -5,14 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
+import { FaGithubSquare } from 'react-icons/fa';
+import { HiDownload } from 'react-icons/hi';
 
 import profile from '@/public/profile.png';
-import { HiDownload } from 'react-icons/hi';
-import { FaGithubSquare } from 'react-icons/fa';
+import { useSectionInView } from '@/lib/hooks';
 
 export default function Intro() {
+  const { ref } = useSectionInView('Home');
+
   return (
-    <section id='home' className='mb-28 max-w-[50rem] scroll-mt-96 text-center sm:mb-0'>
+    <section ref={ref} id='home' className='mb-28 max-w-[50rem] scroll-mt-96 text-center sm:mb-0'>
       <div className='flex items-center justify-center'>
         <div className='relative'>
           <motion.div
