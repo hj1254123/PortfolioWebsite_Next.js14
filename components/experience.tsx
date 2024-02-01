@@ -12,7 +12,7 @@ import { useInView } from 'react-intersection-observer';
 export default function Experience() {
   const { ref } = useSectionInView('Experience');
   // 当前版本 react-vertical-timeline-component 与 next.14 存在兼容问题，这里采用该方式修复。也可降级到 next.js 13.4.8
-  const { ref: ref2, inView } = useInView({ triggerOnce: true });
+  const { ref: ref2, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
   return (
     <section ref={ref} id='experience' className='mb-28 scroll-mt-28 sm:mb-40'>
       <SectionHeader>My experience</SectionHeader>
