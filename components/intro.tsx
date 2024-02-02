@@ -10,9 +10,11 @@ import { HiDownload } from 'react-icons/hi';
 
 import profile from '@/public/profile.png';
 import { useSectionInView } from '@/lib/hooks';
+import { useActiveSectionContext } from '@/context/active-section-context';
 
 export default function Intro() {
   const { ref } = useSectionInView('Home');
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section ref={ref} id='home' className='mb-28 max-w-[50rem] scroll-mt-96 text-center sm:mb-0'>
@@ -69,7 +71,11 @@ export default function Intro() {
       >
         <Link
           className='group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 active:scale-105'
-          href='#about'
+          href='#contact'
+          onClick={() => {
+            setActiveSection('Contact');
+            setTimeOfLastClick(Date.now());
+          }}
         >
           Contact me here{' '}
           <BsArrowRight className='opacity-70 transition group-hover:translate-x-1' />
