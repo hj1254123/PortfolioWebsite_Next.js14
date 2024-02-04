@@ -25,14 +25,14 @@ export async function sendEmail(formData: FormData) {
       from: 'onboarding@resend.dev',
       to: 'hj1254123@gmail.com',
       subject: 'Message from contact form',
-      html: `<p>${message}</p>`,
+      html: `<p>${message}</p><hr /><blockquote>回复email：${senderEmail}</blockquote>`,
       reply_to: senderEmail,
     });
 
     if (error) {
       // 正常情况应该记录日志
       console.log(error);
-      let message = '发送服务出错，请稍后再试。或通过邮箱地址直接联系我~';
+      let message = '邮件发送服务出错，请稍后再试。或通过邮箱地址直接联系我~';
       // 仅告诉客户端验证失败的消息
       if (error.name === 'validation_error') {
         message = error.message;

@@ -1,3 +1,5 @@
+import { Toaster } from 'react-hot-toast';
+
 import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/header';
@@ -21,6 +23,7 @@ export default function RootLayout({
         <ActiveSectionContextProvider>
           <Header />
           {children}
+          <Toaster />
         </ActiveSectionContextProvider>
       </body>
     </html>
