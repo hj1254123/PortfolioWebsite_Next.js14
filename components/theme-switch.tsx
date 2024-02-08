@@ -5,7 +5,7 @@ import { BsMoon, BsSun } from 'react-icons/bs';
 import { useTheme } from '@/context/theme-context';
 
 export default function ThemeSwitch() {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   return (
     <button
       className='fixed bottom-5 right-5 flex h-12 w-12 items-center
@@ -14,7 +14,9 @@ export default function ThemeSwitch() {
                   hover:scale-[1.15] active:scale-[1.05] dark:bg-gray-950'
       onClick={toggleTheme}
     >
-      {theme === 'light' ? <BsSun /> : <BsMoon />}
+      {/* 该方案防止 theme 未就绪，出现图标闪烁问题 */}
+      <BsSun className='block dark:hidden' />
+      <BsMoon className='hidden dark:block' />
     </button>
   );
 }

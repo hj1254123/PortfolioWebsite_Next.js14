@@ -19,7 +19,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='zh-CN' className='!scroll-smooth'>
+    // suppressHydrationWarning
+    // 下方防 dark 模式闪烁脚本，会修改 class。在 SSR 下，服务端和客户端渲染内容不一致，会发出警告，这里禁用一下。
+    <html lang='zh-CN' className='!scroll-smooth' suppressHydrationWarning>
+      <head>
+        {/* 这里不要用 Next.js 的 Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark')
+                } else {
+                  document.documentElement.classList.remove('dark')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body
         className='relative bg-gray-50 pt-28 text-gray-950 sm:pt-36 
                       dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90'

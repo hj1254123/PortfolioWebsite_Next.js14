@@ -23,13 +23,8 @@ export default function ThemeContextProvider({ children }: Props) {
 
     if (localTheme) {
       setTheme(localTheme);
-
-      if (localTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
-      document.documentElement.classList.add('dark');
     }
   }, []);
 
